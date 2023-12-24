@@ -1,0 +1,12 @@
+<Project>
+    <ItemGroup>
+        <MySourceFiles Include="$(MSBuildProjectDirectory)\bin\Debug\asg.redirect.*.nupkg"/>
+    </ItemGroup>
+
+    <Target Name="CopyFiles" AfterTargets="Build" Condition="'$(Configuration)'=='Debug'">
+        <Copy
+            SourceFiles="@(MySourceFiles)"
+            DestinationFolder="$(MSBuildProjectDirectory)\..\..\..\packages"
+        />
+    </Target>
+</Project>
